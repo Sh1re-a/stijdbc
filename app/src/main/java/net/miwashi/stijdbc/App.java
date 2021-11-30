@@ -19,9 +19,11 @@ public class App {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/stidb", "sti", "sti");
-            ResultSet rs = con.createStatement().executeQuery("Show tables");
+            ResultSet rs = con.createStatement().executeQuery("SELECT * FROM FinalStudent_Hobby");
             while(rs.next()) {
                 System.out.print(rs.getString(1));
+                System.out.print(" - ");
+                System.out.print(rs.getString(2));
                 System.out.println();
             }
         } catch (ClassNotFoundException e) {
